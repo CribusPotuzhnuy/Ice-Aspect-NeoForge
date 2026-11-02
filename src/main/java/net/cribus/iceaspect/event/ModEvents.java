@@ -14,7 +14,6 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = IceAspect.MOD_ID)
 public class ModEvents {
-
     @SubscribeEvent
     public static void onLivingDamage(LivingIncomingDamageEvent event) {
         var entity = event.getEntity();

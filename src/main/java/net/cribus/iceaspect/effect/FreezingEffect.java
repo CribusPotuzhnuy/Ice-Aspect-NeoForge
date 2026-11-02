@@ -1,5 +1,6 @@
 package net.cribus.iceaspect.effect;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,7 +11,7 @@ public class FreezingEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+    public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
         if (livingEntity.isOnFire()) {
             // Remove the freezing effect
             livingEntity.removeEffect(ModEffects.FREEZING_EFFECT);
@@ -20,7 +21,7 @@ public class FreezingEffect extends MobEffect {
 
         livingEntity.setTicksFrozen(Math.max(livingEntity.getTicksFrozen(), 300));
 
-        return super.applyEffectTick(livingEntity, amplifier);
+        return super.applyEffectTick(level, livingEntity, amplifier);
     }
 
     @Override

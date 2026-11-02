@@ -16,7 +16,7 @@ public class ModPotions {
             DeferredRegister.create(BuiltInRegistries.POTION, IceAspect.MOD_ID);
 
     public static final Holder<Potion> FREEZING_POTION = POTIONS.register("freezing_potion",
-            () -> new Potion(new MobEffectInstance(ModEffects.FREEZING_EFFECT, 900, 0)));
+            () -> new Potion("freezing_potion", new MobEffectInstance(ModEffects.FREEZING_EFFECT, 900, 0)));
 
 
 
