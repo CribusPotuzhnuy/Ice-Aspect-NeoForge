@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = IceAspect.MOD_ID)
 public class DataGenerators {
     @SubscribeEvent
-    public static void gatherServerData(GatherDataEvent.Server event) {
+    public static void gatherServerData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
