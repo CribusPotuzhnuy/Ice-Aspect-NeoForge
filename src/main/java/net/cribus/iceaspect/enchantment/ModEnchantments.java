@@ -4,8 +4,8 @@ import net.cribus.iceaspect.IceAspect;
 import net.cribus.iceaspect.enchantment.custom.IceAspectEnchantmentEffect;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -15,10 +15,10 @@ import net.minecraft.world.item.enchantment.EnchantmentTarget;
 
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> ICE_ASPECT = ResourceKey.create(Registries.ENCHANTMENT,
-            ResourceLocation.fromNamespaceAndPath(IceAspect.MOD_ID, "ice_aspect"));
+            Identifier.fromNamespaceAndPath(IceAspect.MOD_ID, "ice_aspect"));
 
     public static final TagKey<Enchantment> ICE_ASPECT_CONFLICTS =
-            TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(IceAspect.MOD_ID, "exclusive_set/ice_aspect_conflicts"));
+            TagKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(IceAspect.MOD_ID, "exclusive_set/ice_aspect_conflicts"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchantments = context.lookup(Registries.ENCHANTMENT);
@@ -26,7 +26,7 @@ public class ModEnchantments {
 
         register(context, ICE_ASPECT, Enchantment.enchantment(Enchantment.definition(
             items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                items.getOrThrow(ItemTags.SWORD_ENCHANTABLE),
+                items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
                 2,
                 2,
                 Enchantment.dynamicCost(10, 20),
@@ -37,6 +37,6 @@ public class ModEnchantments {
     }
 
     private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
-        registry.register(key, builder.build(key.location()));
+        registry.register(key, builder.build(key.identifier()));
     }
 }

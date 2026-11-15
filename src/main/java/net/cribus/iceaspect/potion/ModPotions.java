@@ -17,7 +17,7 @@ public class ModPotions {
 
     public static final Holder<Potion> FREEZING_POTION = POTIONS.register("freezing_potion",
             () -> new Potion("freezing_potion", new MobEffectInstance(ModEffects.FREEZING_EFFECT, 900, 0)));
-
+ 
 
 
     public static void register(IEventBus eventBus) {
